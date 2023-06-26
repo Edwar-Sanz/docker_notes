@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:                                 # Servicio para la aplicación
+    build:                             # Construcción de la imagen
+      context: .                       # Directorio de contexto para el Dockerfile (directorio actual)
+      dockerfile: Dockerfile           # Nombre del archivo Dockerfile a utilizar
+    ports:
+      - "3000:3000"                    # Mapeo de puertos del contenedor: puerto_host:puesto_contenedor
+    depends_on:
+      - db                             # Dependencia del servicio "db" (se inicia antes de "app")
+    networks:
+      - redejemplo                     # Nombre de la red para conectar el servicio "app"
+    restart: on-failure:20             # si hay un error intenta nuevamente hasta 20 veces
+  #----------------------------------------------------------------------------------------------------
+  db:                                  # Servicio para la base de datos
+    image: mysql:latest                # Imagen de Docker a utilizar (última versión de MySQL)
+    restart: always                    # Reiniciar siempre el contenedor en caso de fallos
+    environment:                       # Variables de entorno para configurar la base de datos
+      MYSQL_DATABASE: "db"             # Nombre de la base de datos
+      MYSQL_USER: "user"               # Nombre de usuario de la base de datos
+      MYSQL_PASSWORD: "123456789"      # Contraseña del usuario de la base de datos
+      MYSQL_ROOT_PASSWORD: "123456789" # Contraseña del usuario root de la base de datos
+    ports:
+      - "3307:3306"                    # Mapeo de puertos del contenedor: puerto_host:puesto_contenedor
+    volumes:
+      - my-db:/var/lib/mysql           # Volumen para persistir los datos de la base de datos
+    networks:
+      - redejemplo                     # Nombre de la red para conectar el servicio "db"
+  #----------------------------------------------------------------------------------------------------
+networks:
+  redejemplo:                          # Definición de la red "redejemplo"
+
+volumes:
+  my-db:                               # Definición del volumen "my-db"

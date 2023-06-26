@@ -1,0 +1,18 @@
+-las redes contienen contenedores que se pueden
+ comunicar entre si
+
+# listar redes:
+  docker network ls
+
+# crear una red:
+  docker network create "nombre-red"
+
+# borrar una red:
+  docker network rm "nombre-red"
+
+# crear contenedor y asociarlo a una red:
+  docker create -p{puestoHost}:{puertoContainer} --name "nombre-cualquiera" --network "nombre-red" {aqui pueden ir variables de entorno -e} "nombre-imagen-base"
+
+
+Nota: la forma en que se comunican los contenedores
+      es a travez de el nombre del contenedor

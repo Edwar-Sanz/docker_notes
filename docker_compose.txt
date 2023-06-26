@@ -1,0 +1,25 @@
+# construir las imágenes y ejecutar los servicios 
+  definidos en un archivo docker-compose.yml
+  --build indica que construya las imágenes de los
+  servicios antes de iniciar los contenedores:
+
+  docker-compose up --build
+
+
+# -d o --detach indica que ejecute los contenedores en 
+  segundo plano, lo que significa que se ejecutarán en 
+  modo "detached" y no se mostrará la salida en la terminal:
+  
+  docker compose up -d 
+
+
+# detener y eliminar los contenedores, redes y 
+  volúmenes creados por el comando docker-compose up:
+
+  docker compose down
+
+
+# detener los contenedore creados por el 
+  comando docker-compose up:
+
+  docker-compose stop

@@ -1,0 +1,33 @@
+#El comando "docker build" se utiliza para 
+ construir una imagen de Docker a partir de 
+ un archivo de Docker llamado Dockerfile
+
+#Los parámetros que se utilizan en este comando son los siguientes:
+
+  # "-t" es el parámetro que se utiliza para especificar 
+   el nombre y la etiqueta de la imagen que se va a construir. 
+   Por ejemplo, si queremos llamar a nuestra imagen "mi_imagen" 
+   y darle la etiqueta "v1", escribiríamos "-t mi_imagen:v1"
+
+  # "nombre-de-imagen" es el nombre que se le dará a la imagen
+
+  # El punto (".") al final del comando le indica a Docker que 
+   debe buscar el archivo Dockerfile en el directorio actual
+
+# el comando completo quedaría :
+  docker build -t nombre-de-imagen:v1 .  (no olvidar poner el punto al final)
+
+//----------------------------------------------------------------------
+
+# crear contenedor a partir de la imagen creada en el paso anterior
+ -p 3000:3000 indica que deseamos exponer el puerto 3000 del contenedor al puerto 3000 del host
+
+  docker run -p 3000:3000 nombre-de-imagen:v1
+
+  # agregando -d hace que se siga ejecutando en segundo plano
+  docker run -p 3000:3000 -d nombre-de-imagen:v1
+
+
+ejemplo:
+docker run -d -p 8080:8080 --name mysqlprueba -e MYSQL_ROOT_PASSWORD=secret mysql:latest
+ 

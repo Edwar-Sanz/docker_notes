@@ -1,0 +1,46 @@
+mostrar imágenes docker:
+  docker images
+
+hello world:
+  Docker run hello-world
+
+descargar imagen:  https://hub.docker.com/
+  docker pull "nombre-imagen"
+
+eliminar imagen:
+  docker image rm "nombre-imagen"
+
+mostrar todos los contenedores:
+  docker ps -a
+
+crear un contenedor:
+  docker container create --name "nombre cualquiera" "nombre-imagen-base"
+  o también:
+  docker create --name "nombre cualquiera" "nombre-imagen-base"
+  
+ejecutar contenedor:
+  docker start "id-contenedor"
+  o también:
+  docker start "nombre-contenedor"
+
+mostrar contenedores en ejecución
+  docker ps
+
+detener contenedor:
+  docker stop "id-contenedor"
+
+eliminar contenedor:
+  docker rm "nombre-contenedor"
+
+crear contenedor configurando puerto:
+  docker create -p{puestoHost}:{puertoContainer} --name "nombre cualquiera" "nombre-imagen-base"
+  quedaría así:
+  docker create -p3000:3000 --name myNodeContainer node
+
+Monitoreo y depuración contenedor:
+  docker logs "nombre-contenedor"
+  o también:
+  docker logs --follow "nombre-contenedor"
+
+descargar, crear e iniciar contenedor:
+ docker run -d "nombre-imagen"
