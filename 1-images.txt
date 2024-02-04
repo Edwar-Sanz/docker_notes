@@ -1,7 +1,0 @@
-Las imágenes son la base de los contenedores, 
-que son instancias en ejecución de esas imágenes.
-
-- docker image 
-  gestionar imagenes 
-
--

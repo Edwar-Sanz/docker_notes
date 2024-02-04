@@ -1,0 +1,30 @@
+Las imágenes son la base de los contenedores, 
+que son instancias en ejecución de esas imágenes.
+
+- gestionar imagenes 
+  docker image 
+
+correr docker image + comando
+
+lista de comandos:
+
+  ls          List images
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  rm          Remove one or more images
+  prune       Remove unused images
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Display detailed information on one or more images
+  load        Load an image from a tar archive or STDIN
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+
+
+ejemplos:
+  docker image pull ubuntu:latest
+  
+  docker image tag ubuntu:latest my-image-ubuntu:my-tag
+  
+  docker image rm ubuntu:latest
+  docker image rm my-image-ubuntu:my-tag

@@ -1,0 +1,40 @@
+
+- gestionar contenedores 
+  docker container
+
+correr docker container + comando
+Commands:
+  ls            List containers
+  create        Create a new container
+  create -it    Create an interactive container with pseudo-TTY.
+  rename        Rename a container
+  rm            Remove one or more containers
+  rm -f         Forse remove container
+  logs          Fetch the logs of a container
+  events
+  update        Update configuration of one or more containers
+  port          List port mappings or a specific mapping for the container
+  top           Display the running processes of a container
+  stats         Display a live stream of container(s) resource usage statistics
+  diff          Inspect changes to files or directories on a container's filesystem
+  inspect     Display detailed information on one or more containers
+
+ejemplos:
+  docker ps
+  docker container ls -a
+
+  docker container create -it --name "my-ubuntu-container" "ubuntu:latest"
+  docker container rename "my-ubuntu-container" "my-ubuntu"
+  docker port my-ubuntu
+  docker container rm "my-ubuntu"
+
+  
+  crear contenedor configurando puerto:
+    docker create -p{puestoHost}:{puertoContainer} --name "nombre cualquiera" "nombre-imagen-base"
+    quedaría así:
+    docker create -p3000:3000 --name myContainer base-image
+
+  Monitoreo y depuración contenedor:
+    docker logs "nombre-contenedor"
+    o también:
+    docker logs --follow "nombre-contenedor"
